@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.local
+    container_name: garment-pos-backend
+    environment:
+      DATABASE_URL: postgresql://postgres:password@host.docker.internal:5432/garment_pos
+      REDIS_URL: redis://host.docker.internal:6379
+      JWT_SECRET: your-super-secret-jwt-key-here-change-in-production
+      JWT_EXPIRES_IN: 24h
+      NODE_ENV: development
+      PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - garment-pos-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.local
+    container_name: garment-pos-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - garment-pos-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  garment-pos-network:
+    driver: bridge
