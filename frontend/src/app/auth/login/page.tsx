@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const router = useRouter();
 
   const demoCredentials = {
     admin: { email: 'admin@garmentpos.com', password: 'admin123', role: 'admin', name: 'Admin User' },
@@ -37,8 +39,8 @@ export default function LoginPage() {
         role: user.role
       }));
       
-      // Redirect to dashboard
-      window.location.href = '/dashboard';
+      // Navigate to dashboard
+      router.push('/dashboard');
     } else {
       setError('Invalid email or password');
     }
@@ -50,6 +52,10 @@ export default function LoginPage() {
     const user = demoCredentials[role as keyof typeof demoCredentials];
     setEmail(user.email);
     setPassword(user.password);
+  };
+
+  const handleBackToHome = () => {
+    router.push('/');
   };
 
   return (
@@ -134,7 +140,7 @@ export default function LoginPage() {
 
         <div className="mt-6 text-center">
           <button
-            onClick={() => window.location.href = '/'}
+            onClick={handleBackToHome}
             className="text-blue-600 hover:text-blue-800 text-sm"
           >
             ← Back to Home
