@@ -1,0 +1,19 @@
+{
+  "name": "garment-pos",
+  "version": "1.0.0",
+  "description": "Garment POS System - Point of Sale for Garment Retail",
+  "main": "backend/src/index.ts",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "build": "cd backend && npm install",
+    "dev": "cd backend && npm run dev",
+    "install": "cd backend && npm install"
+  },
+  "keywords": ["pos", "garment", "retail", "nodejs", "express", "nextjs"],
+  "author": "Abhishek Chawla",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chawla95/garment-pos.git"
+  }
+}
