@@ -22,6 +22,17 @@
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^5.7.1",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/bwip-js": "^3.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/morgan": "^1.9.10",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.10.5",
+    "@types/node-cron": "^3.0.11",
+    "@types/pdfkit": "^0.13.4",
+    "@types/qrcode": "^1.5.5",
     "bcryptjs": "^2.4.3",
     "bwip-js": "^3.1.0",
     "cors": "^2.8.5",
@@ -38,28 +49,17 @@
     "prisma": "^5.7.1",
     "qrcode": "^1.5.3",
     "redis": "^4.6.11",
+    "typescript": "^5.3.3",
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "@types/bwip-js": "^3.0.0",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
     "@types/jest": "^29.5.8",
-    "@types/jsonwebtoken": "^9.0.5",
-    "@types/morgan": "^1.9.10",
-    "@types/multer": "^1.4.11",
-    "@types/node": "^20.10.5",
-    "@types/node-cron": "^3.0.11",
-    "@types/pdfkit": "^0.13.4",
-    "@types/qrcode": "^1.5.5",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "nodemon": "^3.0.2",
     "prettier": "^3.1.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "ts-node": "^10.9.2"
   }
 }
