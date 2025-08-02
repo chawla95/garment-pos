@@ -20,11 +20,11 @@ export default function HomePage() {
                 email: 'demo@garmentpos.com',
                 role: 'admin'
               }));
-              window.location.reload();
+              window.location.href = '/dashboard';
             }}
             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 text-lg font-semibold shadow-lg"
           >
-            🎯 Try Demo Mode
+            �� Try Demo Mode
           </button>
           
           <button
