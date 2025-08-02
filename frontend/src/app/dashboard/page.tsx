@@ -18,13 +18,16 @@ export default function DashboardPage() {
       setUser(JSON.parse(userData));
     }
 
-    // Demo data
-    setStats({
-      totalSales: 15420,
-      totalProducts: 234,
-      totalCustomers: 89,
-      todayRevenue: 2840
-    });
+    // Demo data based on role
+    const userRole = userData ? JSON.parse(userData).role : 'demo';
+    const roleStats = {
+      admin: { totalSales: 15420, totalProducts: 234, totalCustomers: 89, todayRevenue: 2840 },
+      manager: { totalSales: 12850, totalProducts: 189, totalCustomers: 67, todayRevenue: 2150 },
+      cashier: { totalSales: 8920, totalProducts: 145, totalCustomers: 43, todayRevenue: 1560 },
+      demo: { totalSales: 15420, totalProducts: 234, totalCustomers: 89, todayRevenue: 2840 }
+    };
+    
+    setStats(roleStats[userRole as keyof typeof roleStats] || roleStats.demo);
   }, []);
 
   if (!user) {
@@ -44,6 +47,24 @@ export default function DashboardPage() {
     );
   }
 
+  const getRoleColor = (role: string) => {
+    switch (role) {
+      case 'admin': return 'bg-red-100 text-red-800';
+      case 'manager': return 'bg-green-100 text-green-800';
+      case 'cashier': return 'bg-purple-100 text-purple-800';
+      default: return 'bg-blue-100 text-blue-800';
+    }
+  };
+
+  const getRoleIcon = (role: string) => {
+    switch (role) {
+      case 'admin': return '👑';
+      case 'manager': return '📊';
+      case 'cashier': return '💰';
+      default: return '👤';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -52,7 +73,12 @@ export default function DashboardPage() {
           <div className="flex justify-between items-center py-4">
             <div>
               <h1 className="text-2xl font-bold text-gray-900">Garment POS Dashboard</h1>
-              <p className="text-gray-600">Welcome back, {user.name}</p>
+              <div className="flex items-center space-x-3">
+                <p className="text-gray-600">Welcome back, {user.name}</p>
+                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getRoleColor(user.role)}`}>
+                  {getRoleIcon(user.role)} {user.role.toUpperCase()}
+                </span>
+              </div>
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-500">{user.email}</span>
