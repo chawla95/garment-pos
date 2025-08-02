@@ -5,7 +5,7 @@ export default function HomePage() {
     <div className="min-h-screen flex items-center justify-center bg-blue-50">
       <div className="max-w-md w-full bg-white rounded-lg shadow-xl p-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-blue-600 mb-2">🎉 GARMENT POS LIVE!</h1>
+          <h1 className="text-4xl font-bold text-blue-600 mb-2">🎉 GARMENT POS DEPLOYED!</h1>
           <h2 className="text-2xl font-semibold text-gray-900 mb-2">Garment POS</h2>
           <p className="text-gray-600">Point of Sale System for Garment Retail</p>
         </div>
