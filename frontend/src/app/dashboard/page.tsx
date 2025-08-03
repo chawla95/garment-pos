@@ -39,18 +39,15 @@ export default function DashboardPage() {
   };
 
   const handleNewSale = () => {
-    // TODO: Navigate to sales page
-    alert('New Sale feature coming soon!');
+    router.push('/sales');
   };
 
   const handleAddProduct = () => {
-    // TODO: Navigate to product management
-    alert('Product Management feature coming soon!');
+    router.push('/products');
   };
 
   const handleViewReports = () => {
-    // TODO: Navigate to reports page
-    alert('Reports feature coming soon!');
+    router.push('/reports');
   };
 
   if (!user) {
